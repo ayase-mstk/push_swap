@@ -19,6 +19,7 @@ typedef struct List
 
 void	lst_init(list *list);
 void	lst_pushback(list *list, int n);
+size_t	lst_size(list *stack_A);
 void	lst_print(list *list);
 void	lst_free(list *lsit);
 
