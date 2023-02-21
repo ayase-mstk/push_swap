@@ -6,21 +6,8 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
-#include "list/double_list.h"
-
-// enum cmd_tag {
-//     sa,
-//     sb,
-//     ss,
-//     ra,
-//     rb,s
-//     rr,
-//     rra,
-//     rrb,
-//     rrr,
-//     pa,
-//     pb
-// };
+# include "list/double_list.h"
+# include "command/command.h"
 
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);

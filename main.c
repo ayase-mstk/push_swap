@@ -5,6 +5,8 @@ int	main(int ac, char **av)
 	list	stack_A;
     size_t  i;
 
+	if (error(ac, av))
+		write(2, "error\n", 6);
 	lst_init(&stack_A);
     i = 1;
     while (i < ac)
@@ -12,8 +14,8 @@ int	main(int ac, char **av)
         lst_pushback(&stack_A, ft_atoi(av[i]));
 		i++;
     }
+	ft_pushswap(&stack_A);
 	lst_print(&stack_A);
-	printf("\n");
 	lst_free(&stack_A);
 	return (0);
 }
