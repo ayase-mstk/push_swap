@@ -1,9 +1,9 @@
-#include "double_list.h"
+#include "../push_swap.h"
 
-size_t	lst_size(list *list)
+size_t	lst_size(t_list *list)
 {
 	size_t	size;
-	node	*p;
+	t_node	*p;
 
 	size = 0;
 	p = list->head->to;

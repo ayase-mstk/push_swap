@@ -1,6 +1,6 @@
-#include "command.h"
+#include "../push_swap.h"
 
-void	ra_command(list *stack_A)
+void	ra_command(t_list *stack_A)
 {
 	stack_A->head->to->from = stack_A->head->from;
 	stack_A->head->from->to = stack_A->head->to;
@@ -10,7 +10,7 @@ void	ra_command(list *stack_A)
 	printf("ra\n");
 }
 
-void	rb_command(list *stack_B)
+void	rb_command(t_list *stack_B)
 {
 	stack_B->head->to->from = stack_B->head->from;
 	stack_B->head->from->to = stack_B->head->to;
@@ -21,7 +21,7 @@ void	rb_command(list *stack_B)
 	printf("rb\n");
 }
 
-void	rr_command(list *stack_A, list *stack_B)
+void	rr_command(t_list *stack_A, t_list *stack_B)
 {
 	ra_command(stack_A);
 	rb_command(stack_B);

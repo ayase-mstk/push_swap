@@ -1,8 +1,8 @@
-#include "double_list.h"
+#include "../push_swap.h"
 
-void	lst_print(list *list)
+void	lst_print(t_list *list)
 {
-	node	*p;
+	t_node	*p;
 
 	p = list->head->to;
 	while (p != list->head)

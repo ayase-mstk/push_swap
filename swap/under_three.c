@@ -1,52 +1,41 @@
-#include "../push_swap"
-#include <bool.h>
+#include "../push_swap.h"
 
-bool	compare(node *a, node *b)
+void	swap_three(t_list *stack_A)
 {
-
-}
-
-void	swap_three(list *stack_A, size_t size)
-{
-	node	*first;
-	node	*second;
-	node	*third;
-	int		*order;
-
-	order = coordinate(stack_A, size);
 	if (stack_A->head->to->val > stack_A->head->to->to->val)
 	{
-		if (stack_A->head->to->to->val > stack_A->head->from->val)
+		if (stack_A->head->to->to->val > stack_A->head->from->val) // 3 2 1
 		{
-			// 3 2 1
+			sa_command(stack_A);
+			rra_command(stack_A);
 		}
 		else
 		{
-			if (stack_A->head->to->val > stack_A->head->from->val)
-				// 3 1 2
-			else
-				// 2 1 3
+			if (stack_A->head->to->val > stack_A->head->from->val) // 3 1 2
+				ra_command(stack_A);
+			else // 2 1 3
+				sa_command(stack_A);
 		}
 	}
 	else
 	{
-		if (stack_A->head->to->val > stack_A->head->from->val)
-			// 2 3 1
-		else
-			// 1 3 2
+		if (stack_A->head->to->val > stack_A->head->from->val) // 2 3 1
+			rra_command(stack_A);
+		else // 1 3 2
+		{
+			sa_command(stack_A);
+			ra_command(stack_A);
+		}
 	}
 }
 
-void	under_three(list *stack_A, size_t size)
+void	under_three(t_list *stack_A, size_t size)
 {
-	if (size == 1)
-	else if (size == 2)
+	if (size == 2)
 	{
 		if (stack_A->head->to->val > stack_A->head->to->to->val)
 			sa_command(stack_A);
-		else
-			//nothing else
 	}
-	else
-		swap_three(stack_A, size);
+	else if (size == 3)
+		swap_three(stack_A);
 }

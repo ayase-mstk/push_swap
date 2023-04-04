@@ -1,9 +1,9 @@
-#include "command_h"
+#include "../push_swap.h"
 
-void	sa_command(list *stack_A)
+void	sa_command(t_list *stack_A)
 {
-	node *first;
-	node *second;
+	t_node	*first;
+	t_node	*second;
 
 	first = stack_A->head->to;
 	second = stack_A->head->to->to;
@@ -11,13 +11,14 @@ void	sa_command(list *stack_A)
 	first->to = second->to;
 	second->to = first;
 	first->from = second;
-	printf("sa\n"):
+	stack_A->head->to = second;
+	printf("sa\n");
 }
 
-void	sb_command(list *stack_B)
+void	sb_command(t_list *stack_B)
 {
-	node *first;
-	node *second;
+	t_node	*first;
+	t_node	*second;
 
 	first = stack_B->head->to;
 	second = stack_B->head->to->to;
@@ -25,12 +26,13 @@ void	sb_command(list *stack_B)
 	first->to = second->to;
 	second->to = first;
 	first->from = second;
-	printf("sb\n"):
+	stack_B->head->to = second;
+	printf("sb\n");
 }
 
-void	ss_command(list *stack_A, list *stack_B)
+void	ss_command(t_list *stack_A, t_list *stack_B)
 {
-	sa_command(list *stack_A);
-	sb_command(list *stack_B);
-	printf("ss\n"):
+	sa_command(stack_A);
+	sb_command(stack_B);
+	printf("ss\n");
 }

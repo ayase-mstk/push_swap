@@ -1,12 +1,11 @@
-#include "double_list.h"
+#include "../push_swap.h"
 
-void	lst_pushback(list *list, int value)
+void	lst_pushback(t_list *list, int value)
 {
-    node	*new;
+	t_node	*new;
 
-
-	new = (node *)malloc(sizeof(node));
-    new->val = value;
+	new = (t_node *)malloc(sizeof(t_node));
+	new->val = value;
 	new->from = list->head->from;
 	new->to = list->head;
 	list->head->from->to = new;

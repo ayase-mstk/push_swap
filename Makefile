@@ -1,44 +1,27 @@
-NAME = pushswap.a
+NAME = pushswap
 
-SRCS = 
+SRCS = command/P_command.c command/R_command.c command/RR_command.c \
+		command/S_command.c list/lst_free.c list/lst_init.c list/lst_print.c \
+		list/lst_pushback.c list/lst_size.c swap/over_seven.c swap/under_six.c \
+		swap/under_three.c utils/coordinate_compression.c utils/ft_atoi.c \
+		utils/ft_isdigit.c ft_pushswap.c main.c
 
 OBJS = $(SRCS:%.c=%.o)
-
-BONUS = 
-
-BONUS_OBJS = $(BONUS:%.c=%.o)
-
-LIB = libft/
-
-LIBFT = libft.a
 
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-AR = ar crs
-
-ARFLAGS = rs
-
-ifdef WITH_BONUS
-	SRCS += $(BONUS)
-	OBJS += $(BONUS_OBJS)
-endif
-
 all:	$(NAME)
 
-$(NAME): $(OBJS)
-	make all -C $(LIB)
-	cp $(LIB)$(LIBFT) .
-	mv $(LIBFT) $(NAME)
-	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+$(NAME):	$(OBJS)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 
-bonus:
-	make WITH_BONUS=1
+.c.o :
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	make fclean -C $(LIB)
-	rm -f $(OBJS) $(BONUS_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)
