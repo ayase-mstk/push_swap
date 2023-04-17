@@ -6,6 +6,8 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+#include "./ft_printf/ft_printf.h"
+#include "./libft/libft.h"
 
 typedef struct Node
 {
@@ -20,7 +22,7 @@ typedef struct List
 }	t_list;
 
 // list
-void	lst_init(t_list *list);
+t_list	*lst_init();
 void	lst_pushback(t_list *list, int n);
 size_t	lst_size(t_list *stack_A);
 void	lst_print(t_list *list);
@@ -42,13 +44,10 @@ void	pb_command(t_list *stack_A, t_list *stack_B);
 // pushswap
 void	under_three(t_list *stack_A, size_t size);
 
-// utils
-int		ft_atoi(const char *str);
-int		ft_isdigit(int c);
-int		*coordinate(int ac, char **av);
-
 // main
 int		main(int ac, char **av);
 void	ft_pushswap(t_list *stack_A);
+int		*coordinate(int ac, char **av);
+int		error(int ac, char **av);
 
 #endif
