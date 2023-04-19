@@ -7,10 +7,11 @@ void	sa_command(t_list *stack_A)
 
 	first = stack_A->head->to;
 	second = stack_A->head->to->to;
-	second->from = first->from;
+	second->from = stack_A->head;
 	first->to = second->to;
 	second->to = first;
 	first->from = second;
+	first->to->from = first;
 	stack_A->head->to = second;
 	printf("sa\n");
 }
@@ -22,10 +23,11 @@ void	sb_command(t_list *stack_B)
 
 	first = stack_B->head->to;
 	second = stack_B->head->to->to;
-	second->from = first->from;
+	second->from = stack_B->head;
 	first->to = second->to;
 	second->to = first;
 	first->from = second;
+	first->to->from = first;
 	stack_B->head->to = second;
 	printf("sb\n");
 }

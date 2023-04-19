@@ -6,7 +6,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
-#include "./ft_printf/ft_printf.h"
+#include "./libftprintf/ft_printf.h"
 #include "./libft/libft.h"
 
 typedef struct Node

@@ -3,7 +3,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIBFT_DIR  = libft
-PRINTF_DIR = ft_printf
+PRINTF_DIR = libftprintf
 LIBS       = -L$(LIBFT_DIR) -lft -L$(PRINTF_DIR) -lftprintf
 
 SRCS = command/P_command.c command/R_command.c command/RR_command.c \
