@@ -18,7 +18,8 @@ typedef struct Node
 
 typedef struct List
 {
-	t_node	*head;
+	t_node	*head_a;
+	t_node	*head_b;
 }	t_list;
 
 // list
