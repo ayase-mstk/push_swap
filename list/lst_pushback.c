@@ -6,8 +6,8 @@ void	lst_pushback(t_list *list, int value)
 
 	new = (t_node *)malloc(sizeof(t_node));
 	new->val = value;
-	new->from = list->head->from;
-	new->to = list->head;
-	list->head->from->to = new;
-	list->head->from = new;
+	new->from = list->head_a->from;
+	new->to = list->head_a;
+	list->head_a->from->to = new;
+	list->head_a->from = new;
 }

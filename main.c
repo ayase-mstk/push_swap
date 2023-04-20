@@ -2,7 +2,7 @@
 
 int	main(int ac, char **av)
 {
-	t_list	*stack_a;
+	t_list	*stack;
 	int		*order;
 	int		i;
 
@@ -10,19 +10,19 @@ int	main(int ac, char **av)
 		exit (EXIT_SUCCESS);
 	if (error(ac, av))
 		return (0); // エラーなのかEXIT_SUCCESSなのか
-	stack_a = lst_init();
+	stack = lst_init();
 	// ここで先に av の値を座標圧縮する
 	order = coordinate(ac, av);
 	i = 0;
 	while (i < ac - 1)
 	{
-		lst_pushback(stack_a, order[i]);
+		lst_pushback(stack, order[i]);
 		i++;
 	}
-	// lst_print(stack_a);
-	ft_pushswap(stack_a);
-	// lst_print(stack_a);
-	lst_free(stack_a);
+	// lst_print(stack);
+	ft_pushswap(stack);
+	// lst_print(stack);
+	lst_free(stack);
 	return (0);
 }
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 
 // コンパイル
 // python3 push_swap_tester.py -l 3 -r 1 100
-// cc -fsanitize=address main.c coordinate_compression.c error.c ft_pushswap.c command/*.c list/*.c swap/*.c libft/libft.a libftprintf/libftprintf.a
+// cc -fsanitize=address main.c coordinate_compression.c error.c ft_pushswap.c command/*.c list/*.c swap/*.c libft/libft.a libftprintf/libftprintf.a -o push_swap
 
 
 // 双方向循環リストで先頭を保持する方法２つ

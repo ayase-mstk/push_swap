@@ -6,8 +6,8 @@ size_t	lst_size(t_list *list)
 	t_node	*p;
 
 	size = 0;
-	p = list->head->to;
-	while (p != list->head)
+	p = list->head_a->to;
+	while (p != list->head_a)
 	{
 		size++;
 		p = p->to;

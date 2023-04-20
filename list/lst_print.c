@@ -2,12 +2,12 @@
 
 void	lst_print(t_list *list)
 {
-	t_node	*p;
+	t_node	*a_ptr;
 
-	p = list->head->to;
-	while (p != list->head)
+	a_ptr = list->head_a->to;
+	while (a_ptr != list->head_a)
 	{
-		printf("%d\n", p->val);  //後でft_printfにする
-		p = p->to;
+		ft_printf("%d\n", a_ptr->val);
+		a_ptr = a_ptr->to;
 	}
 }

@@ -23,7 +23,7 @@ typedef struct List
 }	t_list;
 
 // list
-t_list	*lst_init();
+t_list	*lst_init(void);
 void	lst_pushback(t_list *list, int n);
 size_t	lst_size(t_list *stack_A);
 void	lst_print(t_list *list);
@@ -39,11 +39,12 @@ void	rr_command(t_list *stack_A, t_list *stack_B);
 void	rra_command(t_list *stack_A);
 void	rrb_command(t_list *stack_A);
 void	rrr_command(t_list *stack_A, t_list *stack_B);
-void	pa_command(t_list *stack_A, t_list *stack_B);
-void	pb_command(t_list *stack_A, t_list *stack_B);
+void	pa_command(t_list *stack);
+void	pb_command(t_list *stack);
 
 // pushswap
 void	under_three(t_list *stack_A, size_t size);
+void	under_six(t_list *stack, size_t size);
 
 // main
 int		main(int ac, char **av);
