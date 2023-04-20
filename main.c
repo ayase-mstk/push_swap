@@ -6,8 +6,10 @@ int	main(int ac, char **av)
 	int		*order;
 	int		i;
 
-	if (ac == 1)
+	if (ac <= 1)
 		exit (EXIT_SUCCESS);
+	//  ./push_swap "1 5 3 -1" "8" "3"に対応する読み取り方を考える
+	// おそらく、一度引数を一つの文字列にまとめてから、座標圧縮するのが良いかもしれない
 	if (error(ac, av))
 		return (0); // エラーなのかEXIT_SUCCESSなのか
 	stack = lst_init();
