@@ -1,20 +1,44 @@
 #include "push_swap.h"
 
+char **bring_argv_together(char **av)
+{
+	int		i;
+	char	**arg_string;
+	char	**arg_string_all;
+	char	**tmp;
+
+
+	i = 1;
+	while (av[i])
+	{
+		arg_string = ft_split(av[i], ' ');
+		tmp = arg_string_all;
+		if (i == 1)
+			arg_string_all = arg_string;
+		else
+			arg_string_all = ft_strptrjoin(tmp, arg_string);
+		i++;
+	}
+	return (arg_string_all);
+}
+
 int	main(int ac, char **av)
 {
 	t_list	*stack;
 	int		*order;
 	int		i;
+	char	**arg_string;
 
 	if (ac <= 1)
 		exit (EXIT_SUCCESS);
 	//  ./push_swap "1 5 3 -1" "8" "3"に対応する読み取り方を考える
+	arg_string = bring_argv_together(av);
 	// おそらく、一度引数を一つの文字列にまとめてから、座標圧縮するのが良いかもしれない
-	if (error(ac, av))
+	if (error(ac, arg_string))
 		return (0); // エラーなのかEXIT_SUCCESSなのか
 	stack = lst_init();
 	// ここで先に av の値を座標圧縮する
-	order = coordinate(ac, av);
+	order = coordinate(ac, arg_string);
 	i = 0;
 	while (i < ac - 1)
 	{
