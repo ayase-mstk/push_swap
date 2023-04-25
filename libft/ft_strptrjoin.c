@@ -24,7 +24,6 @@ char	**ft_strptrjoin(char **s1, char**s2)
 	j = 0;
 	len1 = ft_strptrlen(s1);
 	len2 = ft_strptrlen(s2);
-	printf("len1 = %d len2 = %d\n", len1, len2);
 	p = (char **)malloc(sizeof(char *) * (len1 + len2 + 1));
 	if (p == NULL)
 		return (NULL);
