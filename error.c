@@ -1,19 +1,19 @@
 #include "push_swap.h"
 
-static int	swaped_num(int ac, char **av)
+static int	swaped_num(char **av)
 {
 	size_t	i;
 	size_t	cnt;
 
-	i = 1;
+	i = 0;
 	cnt = 0;
-	while (i < (size_t)ac - 1)
+	while (i < ft_strptrlen(av) - 1)
 	{
-		if (atoi(av[i]) < atoi(av[i + 1]))
+		if (ft_atoi(av[i]) < ft_atoi(av[i + 1]))
 			cnt++;
 		i++;
 	}
-	if (cnt == (size_t)ac - 2)
+	if (cnt == ft_strptrlen(av) - 1)
 	{
 		ft_printf("ERROR : already swapped\n");
 		return (1);
@@ -21,18 +21,18 @@ static int	swaped_num(int ac, char **av)
 	return (0);
 }
 
-static int	same_num(int ac, char **av)
+static int	same_num(char **av)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 1;
-	while (i < (size_t)ac - 1)
+	i = 0;
+	while (i < ft_strptrlen(av))
 	{
 		j = i + 1;
-		while (j < (size_t)ac - 1)
+		while (j < ft_strptrlen(av))
 		{
-			if (atoi(av[i]) == atoi(av[j]))
+			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
 				ft_printf("ERROR : same number\n");
 				return (1);
@@ -44,17 +44,16 @@ static int	same_num(int ac, char **av)
 	return (0);
 }
 
-static int	outside_intlimit(int ac, char **av)
+static int	outside_intlimit(char **av)
 {
 	size_t		i;
 	long int	num;
 
-	i = 1;
-	while (i < (size_t)ac - 1)
+	i = 0;
+	while (i < ft_strptrlen(av))
 	{
-		num = atoi(av[i]);
-		printf("num = %ld\n", num);
-		if (num < INT_MIN || INT_MAX > num)
+		num = ft_atoi(av[i]);
+		if (num < INT_MIN || INT_MAX < num)
 		{
 			ft_printf("ERROR : over int limits\n");
 			return (1);
@@ -64,13 +63,13 @@ static int	outside_intlimit(int ac, char **av)
 	return (0);
 }
 
-static int	outside_integer(int ac, char **av)
+static int	not_integer(char **av)
 {
 	size_t	i;
 	size_t	j;
 
-	i = 1;
-	while (i < (size_t)ac)
+	i = 0;
+	while (i < ft_strptrlen(av))
 	{
 		j = 0;
 		while (j < ft_strlen(av[i]))
@@ -79,7 +78,7 @@ static int	outside_integer(int ac, char **av)
 			{
 				if (j != 0 && av[i][j] == '-')
 				{
-					ft_printf("ERROR : not integer\n");
+					ft_printf("ERROR : The sign is in the wrong place.\n");
 					return (1);
 				}
 			}
@@ -90,10 +89,10 @@ static int	outside_integer(int ac, char **av)
 	return (0);
 }
 
-int	error(int ac, char **av)
+int	error(char **av)
 {
-	if (outside_integer(ac, av) || outside_intlimit(ac, av) || swaped_num(ac, av) \
-		|| same_num(ac, av))
+	if (not_integer(av) || outside_intlimit(av) || swaped_num(av) \
+		|| same_num(av))
 		return (1);
 	return (0);
 }

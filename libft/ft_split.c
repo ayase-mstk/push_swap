@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mahayase <mahayase@student.42tokyo.>       +#+  +:+       +#+        */
+/*   By: masa <masa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 14:34:15 by mahayase          #+#    #+#             */
-/*   Updated: 2023/01/10 14:34:47 by mahayase         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:13:35 by masa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,30 +81,30 @@ static char	**ft_free(char **strarr, char const *s)
 
 char	**ft_split(char const *s, char c)
 {
+	char	**strarr;
 	size_t	i;
 	size_t	j;
-	size_t	start;
-	size_t	end;
-	char	**strarr;
+	size_t	k;
 
 	i = 0;
 	j = 0;
+	k = 0;
 	strarr = (char **)malloc(sizeof(char *) * (ft_cntsize(s, c) + 1));
 	if (strarr == NULL)
 		return (NULL);
-	while (j < ft_cntsize(s, c) && s[i] != '\0')
+	while (s[i] != '\0' && i < ft_strlen(s))
 	{
-		start = i;
-		end = start + ft_strcount(&s[i], c);
-		if (end > start)
-		{
-			strarr[j++] = ft_strndup(&s[start], end - start);
-			if (strarr[j - 1] == NULL)
-				return (ft_free(strarr, s));
-		}
-		i = end + 1;
+		while (s[i] == c)
+			i++;
+		j = i;
+		while (s[i] != c && s[i] != '\0')
+			i++;
+		if (i > j)
+			strarr[k++] = ft_strndup(&s[j], i - j);
+		if (strarr[k - 1] == NULL)
+			return (ft_free(strarr, s));
 	}
-	strarr[j] = NULL;
+	strarr[k] = NULL;
 	return (strarr);
 }
 

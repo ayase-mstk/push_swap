@@ -49,7 +49,7 @@ void	under_six(t_list *stack, size_t size);
 // main
 int		main(int ac, char **av);
 void	ft_pushswap(t_list *stack_A);
-int		*coordinate(int ac, char **av);
-int		error(int ac, char **av);
+int		*coordinate(char **av, int size);
+int		error(char **av);
 
 #endif
