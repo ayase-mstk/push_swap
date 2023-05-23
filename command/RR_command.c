@@ -28,3 +28,13 @@ void	rrr_command(t_list *stack_A, t_list *stack_B)
 	rrb_command(stack_B);
 	ft_printf("rrr\n");
 }
+
+void	command_rr(t_list *stack, char which)
+{
+	if (which == 'a')
+		rra_command(stack);
+	else if (which == 'b')
+		rrb_command(stack);
+	else if (which == 'r')
+		rrr_command(stack, stack);
+}

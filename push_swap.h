@@ -6,12 +6,13 @@
 # include <string.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdbool.h>
 #include "./libftprintf/ft_printf.h"
 #include "./libft/libft.h"
 
 typedef struct Node
 {
-	int			val;
+	size_t		val;
 	struct Node	*to;
 	struct Node	*from;
 }	t_node;
@@ -30,9 +31,6 @@ void	lst_print(t_list *list);
 void	lst_free(t_list *lsit);
 
 // command
-void	sa_command(t_list *stack_A);
-void	sb_command(t_list *stack_B);
-void	ss_command(t_list *stack_A, t_list *stack_B);
 void	ra_command(t_list *stack_A);
 void	rb_command(t_list *stack_B);
 void	rr_command(t_list *stack_A, t_list *stack_B);
@@ -41,10 +39,19 @@ void	rrb_command(t_list *stack_A);
 void	rrr_command(t_list *stack_A, t_list *stack_B);
 void	pa_command(t_list *stack);
 void	pb_command(t_list *stack);
+void	sa_command(t_list *stack_A);
+void	sb_command(t_list *stack_B);
+void	ss_command(t_list *stack_A, t_list *stack_B);
+void	command_r(t_list *stack, char which);
+void	command_rr(t_list *stack, char which);
+void	command_p(t_list *stack, char which);
+void	command_s(t_list *stack, char which);
 
 // pushswap
 void	under_three(t_list *stack_A, size_t size);
+void	swap_three(t_list *stack, t_node *head, char which);
 void	under_six(t_list *stack, size_t size);
+void	over_seven(t_list *stack, size_t size);
 
 // main
 int		main(int ac, char **av);

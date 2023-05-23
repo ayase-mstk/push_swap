@@ -27,3 +27,11 @@ void	pb_command(t_list *stack)
 		stack->head_b->from = first;
 	ft_printf("pb\n");
 }
+
+void	command_p(t_list *stack, char which)
+{
+	if (which == 'a')
+		pa_command(stack);
+	else if (which == 'b')
+		pb_command(stack);
+}

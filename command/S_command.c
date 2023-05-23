@@ -38,3 +38,13 @@ void	ss_command(t_list *stack_A, t_list *stack_B)
 	sb_command(stack_B);
 	ft_printf("ss\n");
 }
+
+void	command_s(t_list *stack, char which)
+{
+	if (which == 'a')
+		sa_command(stack);
+	else if (which == 'b')
+		sb_command(stack);
+	else if (which == 's')
+		ss_command(stack, stack);
+}

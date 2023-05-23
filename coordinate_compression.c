@@ -50,31 +50,6 @@ void	ft_ranking(int *rank, int *order, int *array, size_t size)
 	}
 }
 
-// int	*coordnate(list *list, size_t size)
-// {
-// 	size_t	i;
-// 	int		*order;
-// 	int		*array;
-// 	node	*current;
-
-// 	i = 0;
-// 	order = malloc(sizeof(int) * (size + 1));
-// 	array = malloc(sizeof(int) * (size + 1));
-// 	order[size] = 0;
-// 	array[size] = 0;
-// 	current = list->head->to;
-// 	while (current != list->head)
-// 	{
-// 		array[i] = order[i] = current->val;
-// 		current = current->to;
-// 		i++;
-// 	}
-// 	ft_linearsort(array, size);
-// 	ft_ranking(order, array, size);
-// 	free(array);
-// 	return (&order);
-// }
-
 int	*coordinate(char **av, int size)
 {
 	int		i;
@@ -83,7 +58,7 @@ int	*coordinate(char **av, int size)
 	int		*array;
 	int		*rank;
 
-	i = 1;
+	i = 0;
 	j = 0;
 	order = malloc(sizeof(int) * size);
 	array = malloc(sizeof(int) * size);
@@ -98,8 +73,8 @@ int	*coordinate(char **av, int size)
 		i++;
 		j++;
 	}
-	ft_linearsort(array, size - 1);
-	ft_ranking(rank, order, array, size - 1);
+	ft_linearsort(array, size);
+	ft_ranking(rank, order, array, size);
 	free(array);
 	free(order);
 	return (rank);

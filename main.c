@@ -42,12 +42,12 @@ int	main(int ac, char **av)
 	i = 0;
 	while (i < ft_strptrlen(arg_string))
 	{
-		lst_pushback(stack, order[i]);
+		lst_pushback(stack, (size_t)order[i]);
 		i++;
 	}
 	// lst_print(stack);
 	ft_pushswap(stack);
-	// lst_print(stack);
+	lst_print(stack);
 	lst_free(stack);
 	return (0);
 }
@@ -65,3 +65,6 @@ int	main(int ac, char **av)
 // there are two ways to keep track of the head of a doubly linked circular list
 // 1. Place the sentinel node at the beginning (end) of the list so that it can be identified. <- this
 // 2. Always store which element is at the beginning in a variable so that it can be identified.
+
+
+// under 5 : 13 : 1042118365 -349976404 -1491126561 1942357310 -2082172023
