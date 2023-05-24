@@ -26,7 +26,7 @@ typedef struct List
 // list
 t_list	*lst_init(void);
 void	lst_pushback(t_list *list, int n);
-size_t	lst_size(t_list *stack_A);
+size_t	lst_size(t_node *head);
 void	lst_print(t_list *list);
 void	lst_free(t_list *lsit);
 
@@ -48,14 +48,15 @@ void	command_p(t_list *stack, char which);
 void	command_s(t_list *stack, char which);
 
 // pushswap
-void	under_three(t_list *stack_A, size_t size);
+void	under_three(t_list *stack, t_node *head, size_t size, char which);
 void	swap_three(t_list *stack, t_node *head, char which);
-void	under_six(t_list *stack, size_t size);
+void	under_six(t_list *stack, t_node *head, size_t size, char which);
 void	over_seven(t_list *stack, size_t size);
 
 // main
 int		main(int ac, char **av);
 void	ft_pushswap(t_list *stack_A);
+int		already_swapped(t_node *head);
 int		*coordinate(char **av, int size);
 int		error(char **av);
 

@@ -1,30 +1,14 @@
 #include "../push_swap.h"
 
-static int	check_ascend(t_list *stack, size_t size)
+static void	move_smlval(t_list *stack, t_node *head, size_t num, char which)
 {
 	size_t	cnt;
+	size_t	size;
 	t_node	*tmp;
 
 	cnt = 0;
-	tmp = stack->head_a->to;
-	while (tmp->to != stack->head_a)
-	{
-		if (tmp->val < tmp->to->val)
-			cnt++;
-		tmp = tmp->to;
-	}
-	if (cnt != size - 1)
-		return (1);
-	return (0);
-}
-
-static void	move_smlval(t_list *stack, size_t num, size_t size)
-{
-	t_node	*tmp;
-	size_t	cnt;
-
-	cnt = 0;
-	tmp = stack->head_a->to;
+	size = lst_size(head);
+	tmp = head->to;
 	while (tmp->val != num)
 	{
 		tmp = tmp->to;
@@ -32,47 +16,49 @@ static void	move_smlval(t_list *stack, size_t num, size_t size)
 	}
 	if (cnt <= size / 2)
 	{
-		while (stack->head_a->to->val != num)
+		while (head->to->val != num)
 		{
-			if (stack->head_a->to->to->val == num)
-				sa_command(stack);
+			if (head->to->to->val == num)
+				command_s(stack, which);
 			else
-				ra_command(stack);
+				command_r(stack, which);
 		}
 	}
 	else
-		while (stack->head_a->to->val != num)
-			rra_command(stack);
-	pb_command(stack);
+		while (head->to->val != num)
+			command_rr(stack, which);
+	command_p(stack, which);
 }
 
 // stack->head_a->to->valがiと一致するまでstack_Aをra回転させる
 // 一致したらpa_commandでstack_Aにpushする
 
-void	under_six(t_list *stack, size_t size)
+void	under_six(t_list *stack, t_node *head, size_t size, char which)
 {
 	size_t	i;
 	t_node	*tmp;
 
+	if (already_swapped(head) == 1)
+		return ;
 	i = 1;
 	while (i <= size - 3)
 	{
-		tmp = stack->head_a->to;
-		while (tmp != stack->head_a)
+		tmp = head->to;
+		while (tmp != head)
 		{
 			if (tmp->val == i)
 			{
-				move_smlval(stack, i, size);
+				move_smlval(stack, head, i, which);
 				break ;
 			}
 			tmp = tmp->to;
 		}
 		i++;
 	}
-	if (check_ascend(stack, 3))
-		under_three(stack, 3);
+	if (!already_swapped(head))
+		under_three(stack, head, 3, which);
 	while (i-- > 1)
-		pa_command(stack);
+		command_p(stack, which);
 }
 
 // push the numbers up to size-3 from the smaller one of stack_A to stack_B in order

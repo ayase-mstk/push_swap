@@ -9,6 +9,7 @@ void	pa_command(t_list *stack)
 	first->to = stack->head_a->to;
 	first->from = stack->head_a;
 	stack->head_a->to = first;
+	first->to->from = first;
 	if (stack->head_a->from == stack->head_a)
 		stack->head_a->from = first;
 	ft_printf("pa\n");
@@ -23,6 +24,7 @@ void	pb_command(t_list *stack)
 	first->to = stack->head_b->to;
 	first->from = stack->head_b;
 	stack->head_b->to = first;
+	first->to->from = first;
 	if (stack->head_b->from == stack->head_b)
 		stack->head_b->from = first;
 	ft_printf("pb\n");

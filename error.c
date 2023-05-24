@@ -15,7 +15,7 @@ static int	swaped_num(char **av)
 	}
 	if (cnt == ft_strptrlen(av) - 1)
 	{
-		ft_printf("ERROR : already swapped\n");
+		// ft_printf("ERROR : already swapped\n");
 		return (1);
 	}
 	return (0);

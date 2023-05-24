@@ -2,23 +2,33 @@
 
 void	rra_command(t_list *stack_A)
 {
-	stack_A->head_a->from->to = stack_A->head_a->to;
-	stack_A->head_a->to->from = stack_A->head_a->from;
-	stack_A->head_a->from = stack_A->head_a->from->from;
-	stack_A->head_a->to->from->from->to = stack_A->head_a;
-	stack_A->head_a->to = stack_A->head_a->to->from;
-	stack_A->head_a->to->from = stack_A->head_a;
+	t_node *first;
+	t_node *last;
+
+	first = stack_A->head_a->to;
+	last = stack_A->head_a->from;
+	last->to = first;
+	first->from = last;
+	stack_A->head_a->from = last->from;
+	last->from->to = stack_A->head_a;
+	stack_A->head_a->to = last;
+	last->from = stack_A->head_a;
 	ft_printf("rra\n");
 }
 
 void	rrb_command(t_list *stack_B)
 {
-	stack_B->head_b->from->to = stack_B->head_b->to;
-	stack_B->head_b->to->from = stack_B->head_b->from;
-	stack_B->head_b->from = stack_B->head_b->from->from;
-	stack_B->head_b->to->from->from->to = stack_B->head_b;
-	stack_B->head_b->to = stack_B->head_b->to->from;
-	stack_B->head_b->to->from = stack_B->head_b;
+	t_node *first;
+	t_node *last;
+
+	first = stack_B->head_b->to;
+	last = stack_B->head_b->from;
+	last->to = first;
+	first->from = last;
+	stack_B->head_b->from = last->from;
+	last->from->to = stack_B->head_b;
+	stack_B->head_b->to = last;
+	last->from = stack_B->head_b;
 	ft_printf("rrb\n");
 }
 
