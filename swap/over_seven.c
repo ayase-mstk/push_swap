@@ -7,16 +7,25 @@ void	recursive_quick_sort(t_list *stack, size_t low, size_t high)
 
 	// lst_print(stack);
 	pivot = (low + high) / 2;
-	if (high - low + 1 <= 3)
+	if (high - low + 1 <= 20)
 	{
+		pivot = high;
+		while ((high--) - low + 1 > 3)
+			move_smlval(stack, stack->head_b, high + 1, 'b');
+		// lst_print(stack);
 		ft_pushswap(stack, stack->head_b, 'b');
 		i = 0;
-		while (i < high - low + 1)
+		while (i <= high - low + 1)
 		{
 			pa_command(stack);
 			ra_command(stack);
 			i++;
 		}
+		// lst_print(stack);
+		high = pivot;
+		while ((high--) - low + 1 > 3)
+			ra_command(stack);
+		// lst_print(stack);
 		return ;
 	}
 	else
@@ -71,6 +80,7 @@ void	over_seven(t_list *stack, size_t size)
 	// lst_print(stack);
 	recursive_quick_sort(stack, low, pivot);
 	// lst_print(stack);
+	// return ;
 	pivot = (high + low) / 2;
 	cnt = pivot;
 	while (cnt++ < high)

@@ -9,7 +9,7 @@ static char	opposite_char(char which)
 	return ('r');
 }
 
-static void	move_smlval(t_list *stack, t_node *head, size_t num, char which)
+void	move_smlval(t_list *stack, t_node *head, size_t num, char which)
 {
 	size_t	cnt;
 	size_t	size;
@@ -60,7 +60,7 @@ void	under_six(t_list *stack, t_node *head, size_t size, char which)
 				move_smlval(stack, head, i, which);
 				break ;
 			}
-			if (tmp->to == size - 3 && already_swapped(head) == 1)
+			if (tmp->to->val == size - 3 && already_swapped(head) == 1)
 				break ;
 			tmp = tmp->to;
 		}

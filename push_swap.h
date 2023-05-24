@@ -51,6 +51,7 @@ void	command_s(t_list *stack, char which);
 void	under_three(t_list *stack, t_node *head, size_t size, char which);
 void	swap_three(t_list *stack, t_node *head, char which);
 void	under_six(t_list *stack, t_node *head, size_t size, char which);
+void	move_smlval(t_list *stack, t_node *head, size_t num, char which);
 void	over_seven(t_list *stack, size_t size);
 
 // main
