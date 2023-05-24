@@ -31,13 +31,10 @@ int	main(int ac, char **av)
 
 	if (ac <= 1)
 		exit(EXIT_SUCCESS);
-	//  ./push_swap "1 5 3 -1" "8" "3"に対応する読み取り方を考える
 	arg_string = bring_argv_together(av);
-	// おそらく、一度引数を一つの文字列にまとめてから、座標圧縮するのが良いかもしれない
 	if (error(arg_string))
 		return (0); // エラーなのかEXIT_SUCCESSなのか
 	stack = lst_init();
-	// ここで先に av の値を座標圧縮する
 	order = coordinate(arg_string, ft_strptrlen(arg_string));
 	i = 0;
 	while (i < ft_strptrlen(arg_string))
@@ -47,9 +44,9 @@ int	main(int ac, char **av)
 	}
 	free(order);
 	// lst_print(stack);
-	ft_pushswap(stack);
+	ft_pushswap(stack, stack->head_a, 'a');
 	// lst_print(stack);
-	lst_free(stack);
+	// lst_free(stack);
 	return (0);
 }
 

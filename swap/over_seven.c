@@ -9,7 +9,7 @@ void	recursive_quick_sort(t_list *stack, size_t low, size_t high)
 	pivot = (low + high) / 2;
 	if (high - low + 1 <= 3)
 	{
-		under_three(stack, stack->head_b, high - low + 1, 'b');
+		ft_pushswap(stack, stack->head_b, 'b');
 		i = 0;
 		while (i < high - low + 1)
 		{
@@ -45,7 +45,7 @@ void	over_seven(t_list *stack, size_t size)
 	size_t	pivot;
 	size_t	low;
 	size_t	high;
-	size_t	tmp;
+	t_node	*tmp;
 
 	cnt = 0;
 	low = 1;
@@ -53,9 +53,15 @@ void	over_seven(t_list *stack, size_t size)
 	pivot = (high + low) / 2;
 	while (cnt < pivot)
 	{
-		tmp = stack->head_a->to->val;
-		if (tmp <= pivot)
+		tmp = stack->head_a->to;
+		if (tmp->val <= pivot)
 		{
+			pb_command(stack);
+			cnt++;
+		}
+		else if (tmp->to->val == cnt + 1 && tmp->val == cnt + 2)
+		{
+			sa_command(stack);
 			pb_command(stack);
 			cnt++;
 		}

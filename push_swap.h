@@ -55,7 +55,7 @@ void	over_seven(t_list *stack, size_t size);
 
 // main
 int		main(int ac, char **av);
-void	ft_pushswap(t_list *stack_A);
+void	ft_pushswap(t_list *stack, t_node *head, char which);
 int		already_swapped(t_node *head);
 int		*coordinate(char **av, int size);
 int		error(char **av);

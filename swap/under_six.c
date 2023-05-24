@@ -1,5 +1,14 @@
 #include "../push_swap.h"
 
+static char	opposite_char(char which)
+{
+	if (which == 'a')
+		return ('b');
+	else if (which == 'b')
+		return ('a');
+	return ('r');
+}
+
 static void	move_smlval(t_list *stack, t_node *head, size_t num, char which)
 {
 	size_t	cnt;
@@ -51,6 +60,8 @@ void	under_six(t_list *stack, t_node *head, size_t size, char which)
 				move_smlval(stack, head, i, which);
 				break ;
 			}
+			if (tmp->to == size - 3 && already_swapped(head) == 1)
+				break ;
 			tmp = tmp->to;
 		}
 		i++;
@@ -58,7 +69,7 @@ void	under_six(t_list *stack, t_node *head, size_t size, char which)
 	if (!already_swapped(head))
 		under_three(stack, head, 3, which);
 	while (i-- > 1)
-		command_p(stack, which);
+		command_p(stack, opposite_char(which));
 }
 
 // push the numbers up to size-3 from the smaller one of stack_A to stack_B in order

@@ -33,7 +33,7 @@ void	pb_command(t_list *stack)
 void	command_p(t_list *stack, char which)
 {
 	if (which == 'a')
-		pa_command(stack);
-	else if (which == 'b')
 		pb_command(stack);
+	else if (which == 'b')
+		pa_command(stack);
 }

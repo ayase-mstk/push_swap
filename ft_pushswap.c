@@ -18,15 +18,15 @@ int	already_swapped(t_node *head)
 	return (0);
 }
 
-void	ft_pushswap(t_list *stack)
+void	ft_pushswap(t_list *stack, t_node *head, char which)
 {
 	size_t	size;
 
-	size = lst_size(stack->head_a);
+	size = lst_size(head);
 	if (size <= 3)
-		under_three(stack, stack->head_a, size, 'a');
+		under_three(stack, head, size, which);
 	else if (size <= 6)
-		under_six(stack, stack->head_a, size, 'a');
+		under_six(stack, head, size, which);
 	else
 		over_seven(stack, size);
 }
