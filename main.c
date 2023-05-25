@@ -1,12 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:46:09 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:46:10 by mahayase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-char **bring_argv_together(char **av)
+char	**bring_argv_together(char **av)
 {
 	int		i;
 	char	**arg_string;
 	char	**arg_string_all;
 	char	**tmp;
-
 
 	i = 1;
 	while (av[i])
@@ -26,14 +37,14 @@ int	main(int ac, char **av)
 {
 	t_list	*stack;
 	int		*order;
-	size_t		i;
+	size_t	i;
 	char	**arg_string;
 
 	if (ac <= 1)
 		exit(EXIT_SUCCESS);
 	arg_string = bring_argv_together(av);
 	if (error(arg_string))
-		return (0); // エラーなのかEXIT_SUCCESSなのか
+		return (0);
 	stack = lst_init();
 	order = coordinate(arg_string, ft_strptrlen(arg_string));
 	i = 0;
@@ -56,34 +67,12 @@ int	main(int ac, char **av)
 // 	system("leaks -q push_swap");
 // }
 
-// compile
-// python3 push_swap_tester.py -l 3 -r 1 100
-// cc -fsanitize=address main.c coordinate_compression.c error.c ft_pushswap.c command/*.c list/*.c swap/*.c libft/libft.a libftprintf/libftprintf.a -o push_swap
-
 // there are two ways to keep track of the head of a doubly linked circular list
-// 1. Place the sentinel node at the beginning (end) of the list so that it can be identified. <- this
-// 2. Always store which element is at the beginning in a variable so that it can be identified.
+// 1. Place the sentinel node at the beginning (end) of the list
+// so that it can be identified. <- this
+// 2. Always store which element is at the beginning in a variable
+// so that it can be identified.
 
-// finish case == under 4
-// max   : 977
-// median: 957
-// min   : 935
-// finish case == under 5
-// max   : 973
-// median: 957
-// min   : 939
-// finish case == under 6
-// max   : 912
-// median: 891
-// min   : 864
-// finish case == under 8
-// max   : 886
-// median: 866
-// min   : 847
-// finish case == under 10
-// max   : 884
-// median: 865
-// min   : 843
 // finish case == under 15
 // max   : 843
 // median: 808

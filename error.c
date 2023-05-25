@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:46:23 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:46:24 by mahayase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	swaped_num(char **av)
@@ -15,7 +27,6 @@ static int	swaped_num(char **av)
 	}
 	if (cnt == ft_strptrlen(av) - 1)
 	{
-		// ft_printf("ERROR : already swapped\n");
 		return (1);
 	}
 	return (0);
@@ -34,7 +45,7 @@ static int	same_num(char **av)
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 			{
-				ft_printf("ERROR : same number\n");
+				ft_putendl_fd("ERROR : same number", 2);
 				return (1);
 			}
 			j++;
@@ -46,16 +57,16 @@ static int	same_num(char **av)
 
 static int	outside_intlimit(char **av)
 {
-	size_t		i;
-	long int	num;
+	size_t	i;
+	long	num;
 
 	i = 0;
 	while (i < ft_strptrlen(av))
 	{
-		num = ft_atoi(av[i]);
+		num = ft_atol(av[i]);
 		if (num < INT_MIN || INT_MAX < num)
 		{
-			ft_printf("ERROR : over int limits\n");
+			ft_putendl_fd("ERROR : over int limits", 2);
 			return (1);
 		}
 		i++;
@@ -76,9 +87,9 @@ static int	not_integer(char **av)
 		{
 			if ((av[i][j]) < '0' || av[i][j] > '9')
 			{
-				if (j != 0 && av[i][j] == '-')
+				if (!(j == 0 && av[i][j] == '-'))
 				{
-					ft_printf("ERROR : The sign is in the wrong place.\n");
+					ft_putendl_fd("ERROR : not integer", 2);
 					return (1);
 				}
 			}

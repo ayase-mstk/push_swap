@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   coordinate_compression.c                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:46:26 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:46:27 by mahayase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ft_swap(int *a, int *b)
@@ -53,13 +65,11 @@ void	ft_ranking(int *rank, int *order, int *array, size_t size)
 int	*coordinate(char **av, int size)
 {
 	int		i;
-	int		j;
 	int		*order;
 	int		*array;
 	int		*rank;
 
 	i = 0;
-	j = 0;
 	order = malloc(sizeof(int) * size);
 	array = malloc(sizeof(int) * size);
 	rank = malloc(sizeof(int) * size);
@@ -68,10 +78,9 @@ int	*coordinate(char **av, int size)
 	rank[size - 1] = 0;
 	while (i < size)
 	{
-		array[j] = ft_atoi(av[i]);
-		order[j] = array[j];
+		array[i] = ft_atoi(av[i]);
+		order[i] = array[i];
 		i++;
-		j++;
 	}
 	ft_linearsort(array, size);
 	ft_ranking(rank, order, array, size);
@@ -80,7 +89,7 @@ int	*coordinate(char **av, int size)
 	return (rank);
 }
 
-// ・元の配列aを、別の配列valsにコピー
-// ・valsをソート
-// ・valsから重複した要素を消す。
-// ・配列aをなめて二分探索でvalsからインデックスを取得
+// ・copy array a to another array vals
+// ・sort vals
+// ・delete duplicate elements from vals
+// ・search array a to get index from vals by binary search

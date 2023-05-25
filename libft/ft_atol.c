@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_pushback.c                                     :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 11:48:58 by mahayase          #+#    #+#             */
-/*   Updated: 2023/05/25 11:48:59 by mahayase         ###   ########.fr       */
+/*   Created: 2023/05/25 11:46:36 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:46:37 by mahayase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	lst_pushback(t_list *list, int value)
+long	ft_atol(const char *str)
 {
-	t_node	*new;
+	int		sign;
+	long	num;
 
-	new = (t_node *)malloc(sizeof(t_node));
-	new->val = value;
-	new->from = list->head_a->from;
-	new->to = list->head_a;
-	list->head_a->from->to = new;
-	list->head_a->from = new;
+	sign = 1;
+	num = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n' || \
+			*str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
+	while ('0' <= *str && *str <= '9')
+		num = num * 10 + (*str++ - '0');
+	return (num * sign);
 }

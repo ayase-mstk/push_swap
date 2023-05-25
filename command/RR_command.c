@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RR_command.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:45:41 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:45:42 by mahayase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	rra_command(t_list *stack_A)
 {
-	t_node *first;
-	t_node *last;
+	t_node	*first;
+	t_node	*last;
 
 	first = stack_A->head_a->to;
 	last = stack_A->head_a->from;
@@ -18,8 +30,8 @@ void	rra_command(t_list *stack_A)
 
 void	rrb_command(t_list *stack_B)
 {
-	t_node *first;
-	t_node *last;
+	t_node	*first;
+	t_node	*last;
 
 	first = stack_B->head_b->to;
 	last = stack_B->head_b->from;

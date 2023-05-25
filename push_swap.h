@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:47:15 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:50:05 by mahayase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -7,8 +19,8 @@
 # include <unistd.h>
 # include <limits.h>
 # include <stdbool.h>
-#include "./libftprintf/ft_printf.h"
-#include "./libft/libft.h"
+# include "./libftprintf/ft_printf.h"
+# include "./libft/libft.h"
 
 typedef struct Node
 {

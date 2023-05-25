@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   under_six.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 11:48:39 by mahayase          #+#    #+#             */
+/*   Updated: 2023/05/25 11:54:09 by mahayase         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static char	opposite_char(char which)
@@ -39,16 +51,11 @@ void	move_smlval(t_list *stack, t_node *head, size_t num, char which)
 	command_p(stack, which);
 }
 
-// stack->head_a->to->valがiと一致するまでstack_Aをra回転させる
-// 一致したらpa_commandでstack_Aにpushする
-
 void	under_six(t_list *stack, t_node *head, size_t size, char which)
 {
 	size_t	i;
 	t_node	*tmp;
 
-	if (already_swapped(head) == 1)
-		return ;
 	i = 1;
 	while (i <= size - 3)
 	{

@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: masa <masa@student.42.fr>                  +#+  +:+       +#+         #
+#    By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/11 18:32:45 by mahayase          #+#    #+#              #
-#    Updated: 2023/05/22 21:07:25 by masa             ###   ########.fr        #
+#    Updated: 2023/05/25 11:47:01 by mahayase         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 SRCS = 	ft_atoi.c \
+		ft_atol.c \
 		ft_bzero.c \
 		ft_calloc.c \
 		ft_isalnum.c \
