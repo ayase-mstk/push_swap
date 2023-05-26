@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <limits.h>
+# include <stdint.h>
 
 int		ft_atoi(const char *str);
 long	ft_atol(const char *str);

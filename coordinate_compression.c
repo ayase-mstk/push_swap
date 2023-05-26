@@ -62,9 +62,9 @@ void	ft_ranking(int *rank, int *order, int *array, size_t size)
 	}
 }
 
-int	*coordinate(char **av, int size)
+int	*coordinate(char **allav, size_t size)
 {
-	int		i;
+	size_t		i;
 	int		*order;
 	int		*array;
 	int		*rank;
@@ -78,14 +78,15 @@ int	*coordinate(char **av, int size)
 	rank[size - 1] = 0;
 	while (i < size)
 	{
-		array[i] = ft_atoi(av[i]);
+		array[i] = ft_atoi(allav[i]);
 		order[i] = array[i];
 		i++;
 	}
+	free_allav(allav, size);
 	ft_linearsort(array, size);
 	ft_ranking(rank, order, array, size);
-	free(array);
 	free(order);
+	free(array);
 	return (rank);
 }
 

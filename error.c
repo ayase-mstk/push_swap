@@ -37,8 +37,9 @@ static int	same_num(char **av)
 	size_t	i;
 	size_t	j;
 
+	return (0);
 	i = 0;
-	while (i < ft_strptrlen(av))
+	while (i < ft_strptrlen(av) - 1)
 	{
 		j = i + 1;
 		while (j < ft_strptrlen(av))
@@ -78,12 +79,14 @@ static int	not_integer(char **av)
 {
 	size_t	i;
 	size_t	j;
+	size_t	size;
 
 	i = 0;
 	while (i < ft_strptrlen(av))
 	{
 		j = 0;
-		while (j < ft_strlen(av[i]))
+		size = ft_strlen(av[i]);
+		while (j < size)
 		{
 			if ((av[i][j]) < '0' || av[i][j] > '9')
 			{

@@ -70,7 +70,9 @@ void	over_seven(t_list *stack, size_t size);
 int		main(int ac, char **av);
 void	ft_pushswap(t_list *stack, t_node *head, char which);
 int		already_swapped(t_node *head);
-int		*coordinate(char **av, int size);
+void	free_allav(char **allav, size_t size);
+int		*coordinate(char **av, size_t size);
 int		error(char **av);
+void	recursive_quick_sort_kai(t_list *stack, size_t low, size_t high);
 
 #endif

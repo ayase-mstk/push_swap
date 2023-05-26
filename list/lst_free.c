@@ -24,14 +24,18 @@ void	lst_free(t_list *list)
 	{
 		next = a_ptr->to;
 		free(a_ptr);
+		a_ptr = NULL;
 		a_ptr = next;
 	}
 	free(list->head_a);
+	list->head_a = NULL;
 	while (b_ptr != list->head_b)
 	{
 		next = b_ptr->to;
 		free(b_ptr);
+		b_ptr = NULL;
 		b_ptr = next;
 	}
 	free(list->head_b);
+	list->head_b = NULL;
 }

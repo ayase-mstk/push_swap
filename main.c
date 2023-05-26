@@ -12,6 +12,24 @@
 
 #include "push_swap.h"
 
+void	free_allav(char **allav, size_t size)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+	{
+		if (allav[i])
+		{
+			free(allav[i]);
+			allav[i] = NULL;
+		}
+		i++;
+	}
+	free(allav);
+	allav = NULL;
+}
+
 char	**bring_argv_together(char **av)
 {
 	int		i;
@@ -28,6 +46,7 @@ char	**bring_argv_together(char **av)
 			arg_string_all = arg_string;
 		else
 			arg_string_all = ft_strptrjoin(tmp, arg_string);
+		// free_allav(arg_string, ft_strptrlen(arg_string));
 		i++;
 	}
 	return (arg_string_all);

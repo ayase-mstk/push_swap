@@ -1,6 +1,6 @@
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -g
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 LIBFT_DIR  = libft
 PRINTF_DIR = libftprintf
@@ -18,6 +18,7 @@ SRCS = 	command/P_command.c \
 		swap/over_seven.c \
 		swap/under_six.c \
 		swap/under_three.c \
+		swap/quicksort_kai.c \
 		coordinate_compression.c \
 		ft_pushswap.c \
 		error.c \

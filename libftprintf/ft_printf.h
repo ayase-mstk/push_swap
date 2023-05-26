@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <inttypes.h>
 
 int		ft_printf(const char *s, ...);
 ssize_t	print_char(int c);

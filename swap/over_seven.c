@@ -110,11 +110,11 @@ void	over_seven(t_list *stack, size_t size)
 	high = size;
 	pivot = (high + low) / 2;
 	send_ascending_order(stack, pivot);
-	recursive_quick_sort(stack, low, pivot);
+	recursive_quick_sort_kai(stack, low, pivot);
 	cnt = pivot;
 	while (cnt++ < high)
 		pb_command(stack);
-	recursive_quick_sort(stack, pivot + 1, high);
+	recursive_quick_sort_kai(stack, pivot + 1, high);
 }
 
 // void	recursive_quick_sort(t_list *stack, size_t low, size_t high)
