@@ -6,7 +6,7 @@
 /*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:46:20 by mahayase          #+#    #+#             */
-/*   Updated: 2023/05/25 12:35:37 by mahayase         ###   ########.fr       */
+/*   Updated: 2023/05/26 23:44:45 by mahayase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,7 @@ void	over_seven(t_list *stack, size_t size)
 	pivot = (high + low) / 2;
 	send_ascending_order(stack, pivot);
 	recursive_quick_sort_kai(stack, low, pivot);
+	// return ;
 	cnt = pivot;
 	while (cnt++ < high)
 		pb_command(stack);

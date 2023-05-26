@@ -6,7 +6,7 @@
 /*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:48:23 by mahayase          #+#    #+#             */
-/*   Updated: 2023/05/25 11:48:24 by mahayase         ###   ########.fr       */
+/*   Updated: 2023/05/27 00:05:30 by mahayase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,5 @@ void	ft_pushswap(t_list *stack, t_node *head, char which)
 	else if (size <= 6)
 		under_six(stack, head, size, which);
 	else
-		over_seven(stack, size);
+		over_seven_kai(stack, size);
 }

@@ -19,6 +19,7 @@ SRCS = 	command/P_command.c \
 		swap/under_six.c \
 		swap/under_three.c \
 		swap/quicksort_kai.c \
+		swap/super_quicksort.c \
 		coordinate_compression.c \
 		ft_pushswap.c \
 		error.c \

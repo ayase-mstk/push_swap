@@ -6,7 +6,7 @@
 /*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:46:26 by mahayase          #+#    #+#             */
-/*   Updated: 2023/05/25 11:46:27 by mahayase         ###   ########.fr       */
+/*   Updated: 2023/05/26 21:58:44 by mahayase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ int	*coordinate(char **allav, size_t size)
 		order[i] = array[i];
 		i++;
 	}
-	free_allav(allav, size);
 	ft_linearsort(array, size);
 	ft_ranking(rank, order, array, size);
+	// free_allav(allav, size);
 	free(order);
 	free(array);
 	return (rank);

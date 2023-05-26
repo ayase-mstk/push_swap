@@ -6,7 +6,7 @@
 /*   By: mahayase <mahayase@student.42.jp>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/25 11:47:15 by mahayase          #+#    #+#             */
-/*   Updated: 2023/05/25 11:50:05 by mahayase         ###   ########.fr       */
+/*   Updated: 2023/05/27 00:04:37 by mahayase         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ void	swap_three(t_list *stack, t_node *head, char which);
 void	under_six(t_list *stack, t_node *head, size_t size, char which);
 void	move_smlval(t_list *stack, t_node *head, size_t num, char which);
 void	over_seven(t_list *stack, size_t size);
+void	over_seven_kai(t_list *stack, size_t size);
 
 // main
 int		main(int ac, char **av);
